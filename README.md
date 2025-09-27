@@ -156,7 +156,7 @@ npm start      # Production mode
 ```
 
 * Server runs on: `http://localhost:5000`
-* Health check: visit `http://localhost:5000/` → should return "Server is working"
+* Health check: visit `http://localhost:5000/api` → should return "Server is working"
 
 ---
 
