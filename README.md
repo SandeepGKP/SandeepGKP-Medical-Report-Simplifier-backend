@@ -178,7 +178,7 @@ npm start      # Production mode
 ```json
 {
   "type": "text",
-  "content": "CBC: Hemoglobin 10.2 g/dL (Low)"
+  "content": " Hemoglobin 10.2 g/dL (Low), WBC 11,200 /uL (High)"
 }
 
 ```
