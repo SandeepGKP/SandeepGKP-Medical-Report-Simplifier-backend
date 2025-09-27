@@ -92,6 +92,23 @@ Users can upload reports with both standard abbreviations (e.g., "WBC", "TSH") a
 
 **Note:** Currently uses local JSON file for test references; integration with third-party APIs for dynamic reference ranges can be implemented in future updates.
 
+## Sample Input Formats
+
+### File Upload Sample
+Upload a file with test results. For example, a text file containing:
+```
+Hemoglobin 13.5 g/dL
+Glucose 95 mg/dL
+```
+
+### Raw JSON Input Sample
+```json
+{
+  "type": "text",
+  "content": "CBC: Hemoglobin 10.2 g/dL (Low), WBC 11,200 /uL (High)"
+}
+```
+
 ## Data Input Formats
 
 ### Text File Input
@@ -132,11 +149,7 @@ npm start
 
 2. The server will start on `http://localhost:5000` (or your configured PORT)
 
-3. Test the health endpoint:
-```bash
-curl http://localhost:5000/
-```
-Should return: "Server is working"
+3. Test the health endpoint: Visit `http://localhost:5000/` in your browser or use any HTTP client. It should return: "Server is working"
 
 ## API Documentation
 
@@ -166,11 +179,11 @@ Process a medical report file (image or text) and return simplified results.
 **Parameters:**
 - `file`: Medical report file (image formats like JPG, PNG, or text file)
 
-**Example Request:**
-```bash
-curl -X POST \
-  http://localhost:5000/process \
-  -F "file=@/path/to/medical_report.jpg"
+**Sample Input:**
+```json
+{
+  "tests_raw": ["Hemoglobin 13.5 g/dL", "RBC 5.1 million cells/uL"]
+}
 ```
 
 **Success Response (200):**
@@ -241,31 +254,6 @@ curl -X POST \
 - **Image files**: JPG, PNG recommended. Ensure good lighting and clear text for best OCR results
 - **Text files**: UTF-8 encoded text files with test results in format: `Test Name Value Unit`
 - **Minimum OCR confidence**: 70% - below this threshold, processing is rejected with retry instruction
-
-## Sample API Usage
-
-### Using curl (Image Upload):
-```bash
-curl -X POST \
-  -H "Content-Type: multipart/form-data" \
-  -F "file=@sample_report.jpg" \
-  http://localhost:5000/process
-```
-
-### Using curl (Text Upload):
-```bash
-echo -e "TSH 2.5 mIU/L\nLymphocytes 30 %" > report.txt
-curl -X POST \
-  -H "Content-Type: multipart/form-data" \
-  -F "file=@report.txt" \
-  http://localhost:5000/process
-```
-
-### Expected Output Format:
-- `tests`: Array of normalized test objects with current values, units, and normal/abnormal status
-- `summary`: Short text summary of overall report status
-- `explanations`: Array of detailed explanations for abnormal findings
-- `status`: Processing status ("ok", "unprocessed", or "error")
 
 ## Postman Testing
 
