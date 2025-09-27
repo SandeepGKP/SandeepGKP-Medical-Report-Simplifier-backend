@@ -2,7 +2,7 @@
 
 ## Project Overview and Purpose
 
-The Medical Report Simplifier Backend is a Node.js/Express application designed to process medical laboratory reports. It accepts uploaded report files (images or text) and transforms complex medical test results into patient-friendly summaries. The system uses OCR (Optical Character Recognition) to extract text from images, normalizes medical test names and values against standard reference ranges, and generates simplified explanations of abnormal findings.
+The Medical Report Simplifier Backend is a Node.js/Express application designed to process medical tests like CBC : Hemoglobin 10.2 g/dL (Low), WBC 11,200 /uL (High). It accepts uploaded report files (images or text) and transforms medical test results into patient-friendly summaries. The system uses OCR (Optical Character Recognition) to extract text from images, normalizes medical test names and values against standard reference ranges, and generates simplified explanations of abnormal findings.
 
 Key features:
 - Supports both image uploads (photos of lab reports) and direct text uploads
