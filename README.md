@@ -145,7 +145,13 @@ Should return: "Server is working"
 http://localhost:5000
 ```
 
-**Note:** For users who want to test the API without setting up locally, a deployed version is available at `https://sandeepgkp-medical-report-simplifier.onrender.com`. Replace `http://localhost:5000` with this URL in the examples below. For local development, continue using `http://localhost:5000`.
+**Note:** For users who want to test the API without setting up locally, a deployed version is available at:
+
+```
+https://sandeepgkp-medical-report-simplifier.onrender.com
+```
+
+Replace `http://localhost:5000` with this URL in the examples below. For local development, continue using `http://localhost:5000`.
 
 ### Endpoints
 
