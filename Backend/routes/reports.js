@@ -4,6 +4,6 @@ const multer = require('multer');
 const upload = multer({ storage: multer.memoryStorage() });
 const { processReport } = require('../controllers/reportController');
 
-router.get('/ocr', upload.any(), processReport);
+router.post('/ocr', upload.any(), processReport);
 
 module.exports = router;
