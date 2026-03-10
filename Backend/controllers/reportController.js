@@ -38,7 +38,9 @@ async function processReport(req, res) {
                 });
 
             }
-
+            
+            console.log("Extract text from image :::::::: >>> ",text);
+            
             // Send response for both cases
             return res.status(200).json({
                 res: text,
