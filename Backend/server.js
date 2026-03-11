@@ -7,7 +7,7 @@ app.use('/api', reportsRouter);
 
 app.get('/api', (req, res) => res.send('Server is working'));
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT;
 app.listen(port, "0.0.0.0", () => {
     console.log(`Listening on ${port}`);
 });
